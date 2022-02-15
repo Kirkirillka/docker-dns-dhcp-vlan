@@ -1,0 +1,18 @@
+- hosts: docker
+  become: yes
+
+  vars:
+    pip_install_packages:
+      - name:
+        - docker
+
+  # pre_tasks:
+  #   - name: install current key
+  #     ansible.posix.authorized_key:
+  #       user: vagrant
+  #       state: present
+  #       key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+
+  roles:
+    - geerlingguy.pip
+    - geerlingguy.docker

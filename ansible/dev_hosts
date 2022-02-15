@@ -1,0 +1,6 @@
+dhcp_docker_server  ansible_host=192.168.33.11 ansible_user=vagrant
+dhcp_docker_client  ansible_host=192.168.33.12 ansible_user=vagrant
+
+[docker]
+dhcp_docker_server
+dhcp_docker_client
