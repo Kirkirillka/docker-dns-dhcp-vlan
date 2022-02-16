@@ -1,0 +1,44 @@
+version: '2'
+
+services:
+  dhcpd:
+    build: .
+    image: dhcpd
+    volumes:
+      - ./data:/data
+    restart: always
+    networks:
+      - nat
+      - vlan20
+      - vlan30
+      - vlan40
+
+networks:
+  nat:
+  vlan20:
+    driver: ipvlan
+    driver_opts:
+      parent: eth2.20
+    ipam:
+      config:
+        - subnet: 10.0.55.0/24
+          ip_range: 10.0.55.250/32
+          gateway: 10.0.55.1
+  vlan30:
+    driver: ipvlan
+    driver_opts:
+      parent: eth2.30
+    ipam:
+      config:
+        - subnet: 10.0.65.0/24
+          ip_range: 10.0.65.250/32
+          gateway: 10.0.65.1
+  vlan40:
+    driver: ipvlan
+    driver_opts:
+      parent: eth2.40
+    ipam:
+      config:
+        - subnet: 10.0.75.0/24
+          ip_range: 10.0.75.250/32
+          gateway: 10.0.75.1

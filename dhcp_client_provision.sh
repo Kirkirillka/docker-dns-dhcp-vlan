@@ -19,13 +19,17 @@ network:
     vlan.20:
       id: 20
       link: eth2
-      dhcp4: no
-      addresses: [10.0.55.240/24]
+      dhcp4: yes
     vlan.30:
       id: 30
       link: eth2
-      dhcp4: no
+      dhcp4: yes
       addresses: [10.0.65.240/24]
+    vlan.40:
+      id: 40
+      link: eth2
+      dhcp4: yes
+      addresses: [10.0.75.240/24]
 EOF
 
 netplan generate

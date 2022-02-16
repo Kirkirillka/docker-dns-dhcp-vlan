@@ -1,5 +1,10 @@
+#!/bin/bash
+
+# additional packages
 apt-get update
 apt-get install -y python3-pip vlan tcpdump
+
+# ensure vlan driver enabled
 modprobe 8021q
 
 
